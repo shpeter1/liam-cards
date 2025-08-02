@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="he">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>🃏 הקלפים של ליאם 🎮</title>
     <style>
         * {
@@ -39,38 +39,207 @@
             clip-path: polygon(0 100%, 20% 60%, 40% 80%, 60% 50%, 80% 70%, 100% 45%, 100% 100%);
         }
 
-        .tree { position: absolute; bottom: 0; }
-        .tree1 { left: 5%; width: 80px; height: 150px; background: linear-gradient(180deg, #228B22, #32CD32); border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; }
-        .tree1::before { content: ''; position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 15px; height: 40px; background: #8B4513; border-radius: 8px; }
-        .tree2 { right: 10%; width: 100px; height: 180px; background: linear-gradient(180deg, #006400, #228B22); border-radius: 50%; }
-        .tree2::before { content: ''; position: absolute; bottom: -25px; left: 50%; transform: translateX(-50%); width: 20px; height: 50px; background: #654321; border-radius: 10px; }
-        .tree3 { left: 70%; width: 60px; height: 120px; background: linear-gradient(180deg, #32CD32, #90EE90); border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%; }
-        .tree3::before { content: ''; position: absolute; bottom: -15px; left: 50%; transform: translateX(-50%); width: 12px; height: 35px; background: #8B4513; border-radius: 6px; }
+        .tree {
+            position: absolute;
+            bottom: 0;
+        }
 
-        .vine { position: absolute; width: 8px; background: linear-gradient(180deg, #228B22, #32CD32); border-radius: 4px; animation: vineSwing 4s ease-in-out infinite alternate; }
-        .vine1 { left: 30%; top: 20%; height: 200px; animation-delay: 0s; }
-        .vine2 { right: 25%; top: 15%; height: 180px; animation-delay: 1.5s; }
-        .vine3 { left: 60%; top: 25%; height: 160px; animation-delay: 3s; }
+        .tree1 {
+            left: 5%;
+            width: 80px;
+            height: 150px;
+            background: linear-gradient(180deg, #228B22, #32CD32);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
 
-        @keyframes vineSwing { 0% { transform: rotate(-3deg); } 100% { transform: rotate(3deg); } }
+        .tree1::before {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 40px;
+            background: #8B4513;
+            border-radius: 8px;
+        }
 
-        .cloud { position: absolute; background: rgba(255, 255, 255, 0.8); border-radius: 50px; animation: cloudFloat 25s linear infinite; }
-        .cloud1 { top: 10%; left: -100px; width: 80px; height: 40px; animation-duration: 30s; }
-        .cloud2 { top: 20%; left: -120px; width: 100px; height: 50px; animation-duration: 25s; animation-delay: -10s; }
-        .cloud3 { top: 5%; left: -80px; width: 60px; height: 30px; animation-duration: 35s; animation-delay: -20s; }
+        .tree2 {
+            right: 10%;
+            width: 100px;
+            height: 180px;
+            background: linear-gradient(180deg, #006400, #228B22);
+            border-radius: 50%;
+        }
 
-        @keyframes cloudFloat { 0% { transform: translateX(0); } 100% { transform: translateX(calc(100vw + 200px)); } }
+        .tree2::before {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 50px;
+            background: #654321;
+            border-radius: 10px;
+        }
 
-        .grass { position: absolute; bottom: 0; width: 100%; height: 30px; background: linear-gradient(90deg, #228B22, #32CD32, #90EE90, #32CD32, #228B22); animation: grassWave 3s ease-in-out infinite; }
-        @keyframes grassWave { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.1) translateY(-3px); } }
+        .tree3 {
+            left: 70%;
+            width: 60px;
+            height: 120px;
+            background: linear-gradient(180deg, #32CD32, #90EE90);
+            border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+        }
 
-        .game-container { position: relative; z-index: 10; min-height: 100vh; display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        .tree3::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 35px;
+            background: #8B4513;
+            border-radius: 6px;
+        }
 
-        .start-screen { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; text-align: center; }
-        .game-title { font-size: 4em; color: #8B4513; text-shadow: 4px 4px 8px rgba(0,0,0,0.5); margin-bottom: 30px; animation: titleBounce 2s ease-in-out infinite alternate; }
-        @keyframes titleBounce { 0% { transform: translateY(0px) scale(1); } 100% { transform: translateY(-10px) scale(1.05); } }
-        .subtitle { font-size: 1.8em; color: #2F4F2F; text-shadow: 2px 2px 4px rgba(255,255,255,0.8); margin-bottom: 40px; background: rgba(255,255,255,0.3); padding: 15px 30px; border-radius: 25px; backdrop-filter: blur(5px); }
-        .difficulty-buttons { display: flex; flex-direction: column; gap: 25px; margin-top: 20px; }
+        .vine {
+            position: absolute;
+            width: 8px;
+            background: linear-gradient(180deg, #228B22, #32CD32);
+            border-radius: 4px;
+            animation: vineSwing 4s ease-in-out infinite alternate;
+        }
+
+        .vine1 {
+            left: 30%;
+            top: 20%;
+            height: 200px;
+            animation-delay: 0s;
+        }
+
+        .vine2 {
+            right: 25%;
+            top: 15%;
+            height: 180px;
+            animation-delay: 1.5s;
+        }
+
+        .vine3 {
+            left: 60%;
+            top: 25%;
+            height: 160px;
+            animation-delay: 3s;
+        }
+
+        @keyframes vineSwing {
+            0% { transform: rotate(-3deg); }
+            100% { transform: rotate(3deg); }
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            animation: cloudFloat 25s linear infinite;
+        }
+
+        .cloud1 {
+            top: 10%;
+            left: -100px;
+            width: 80px;
+            height: 40px;
+            animation-duration: 30s;
+        }
+
+        .cloud2 {
+            top: 20%;
+            left: -120px;
+            width: 100px;
+            height: 50px;
+            animation-duration: 25s;
+            animation-delay: -10s;
+        }
+
+        .cloud3 {
+            top: 5%;
+            left: -80px;
+            width: 60px;
+            height: 30px;
+            animation-duration: 35s;
+            animation-delay: -20s;
+        }
+
+        @keyframes cloudFloat {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(100vw + 200px)); }
+        }
+
+        .grass {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(90deg, #228B22, #32CD32, #90EE90, #32CD32, #228B22);
+            animation: grassWave 3s ease-in-out infinite;
+        }
+
+        @keyframes grassWave {
+            0%, 100% { transform: scaleY(1); }
+            50% { transform: scaleY(1.1) translateY(-3px); }
+        }
+
+        .game-container {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .start-screen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .game-title {
+            font-size: 4em;
+            color: #8B4513;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+            animation: titleBounce 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes titleBounce {
+            0% { transform: translateY(0px) scale(1); }
+            100% { transform: translateY(-10px) scale(1.05); }
+        }
+
+        .subtitle {
+            font-size: 1.8em;
+            color: #2F4F2F;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.8);
+            margin-bottom: 40px;
+            background: rgba(255,255,255,0.3);
+            padding: 15px 30px;
+            border-radius: 25px;
+            backdrop-filter: blur(5px);
+        }
+
+        .difficulty-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin-top: 20px;
+        }
+
         .difficulty-btn {
             padding: 25px 50px;
             font-size: 18px;
@@ -85,14 +254,46 @@
             min-width: 300px;
             min-height: 80px;
         }
-        .difficulty-btn.easy { background: linear-gradient(45deg, #90EE90, #32CD32); color: #006400; }
-        .difficulty-btn.medium { background: linear-gradient(45deg, #FFD700, #FFA500); color: #8B4513; }
-        .difficulty-btn.hard { background: linear-gradient(45deg, #FF6347, #DC143C); color: white; }
-        .difficulty-btn:active, .game-btn:active, .sound-toggle:active, .card:active { transform: scale(0.95); }
 
-        .game-screen { display: none; width: 100%; max-width: 1200px; margin: 0 auto; }
-        .game-header { text-align: center; margin-bottom: 30px; }
-        .game-info { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; }
+        .difficulty-btn.easy {
+            background: linear-gradient(45deg, #90EE90, #32CD32);
+            color: #006400;
+        }
+
+        .difficulty-btn.medium {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #8B4513;
+        }
+
+        .difficulty-btn.hard {
+            background: linear-gradient(45deg, #FF6347, #DC143C);
+            color: white;
+        }
+
+        .difficulty-btn:active, .game-btn:active, .sound-toggle:active, .card:active {
+            transform: scale(0.95);
+        }
+
+        .game-screen {
+            display: none;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
         .info-card {
             background: rgba(255,255,255,0.95);
             padding: 15px 25px;
@@ -106,13 +307,27 @@
             border: 3px solid #228B22;
         }
 
-        .stars { text-align: center; margin-bottom: 20px; font-size: 3em; }
-        .star { color: #ddd; transition: all 0.3s ease; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+        .stars {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 3em;
+        }
+
+        .star {
+            color: #ddd;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
         .star.filled {
             color: #FFD700;
             animation: starGlow 1.5s ease-in-out infinite alternate;
         }
-        @keyframes starGlow { 0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); } 100% { text-shadow: 0 0 25px #FFD700, 2px 2px 4px rgba(0,0,0,0.3); } }
+
+        @keyframes starGlow {
+            0% { text-shadow: 2px 2px 4px rgba(0,0,0,0.3); }
+            100% { text-shadow: 0 0 25px #FFD700, 2px 2px 4px rgba(0,0,0,0.3); }
+        }
 
         .game-controls {
             display: flex;
@@ -137,7 +352,10 @@
             background: linear-gradient(45deg, #9B59B6, #8E44AD);
             color: white;
         }
-        .btn-restart { background: linear-gradient(45deg, #FF6B35, #FF8C42); }
+
+        .btn-restart {
+            background: linear-gradient(45deg, #FF6B35, #FF8C42);
+        }
 
         .game-board {
             display: grid;
@@ -152,10 +370,21 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.4);
             max-width: fit-content;
             transition: transform 0.2s ease;
+            grid-auto-rows: 1fr;
         }
-        .game-board.easy { grid-template-columns: repeat(3, 1fr); }
-        .game-board.medium { grid-template-columns: repeat(4, 1fr); }
-        .game-board.hard { grid-template-columns: repeat(6, 1fr); }
+
+        .game-board.easy {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .game-board.medium {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .game-board.hard {
+            grid-template-columns: repeat(6, minmax(0, 1fr));
+            gap: 16px;
+        }
 
         .card {
             aspect-ratio: 1;
@@ -170,13 +399,24 @@
             overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.4);
             border: 4px solid #654321;
-            min-width: 90px;
             min-height: 90px;
             perspective: 1000px;
             touch-action: manipulation;
+            /* הסר min-width קשה במובייל; נשאר גמיש */
         }
-        .card-inner { width: 100%; height: 100%; transition: transform 0.6s; transform-style: preserve-3d; position: relative; }
-        .card.flipped .card-inner { transform: rotateY(180deg); }
+
+        .card-inner {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
         .card-back, .card-front {
             width: 100%;
             height: 100%;
@@ -187,6 +427,7 @@
             justify-content: center;
             border-radius: 16px;
         }
+
         .card-back {
             background: linear-gradient(145deg, #8B4513, #A0522D);
             background-image:
@@ -195,11 +436,13 @@
             color: #654321;
             font-size: 2.5em;
         }
+
         .card-back::after {
             content: '🌿';
             font-size: 3em;
             text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
         }
+
         .card-front {
             background: linear-gradient(145deg, #F5DEB3, #DEB887);
             transform: rotateY(180deg);
@@ -207,15 +450,18 @@
             text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
             border: 3px solid #D2691E;
         }
+
         .card.matched {
             background: linear-gradient(145deg, #90EE90, #98FB98);
             cursor: default;
             animation: matchPulse 1s ease;
         }
+
         .card.matched .card-front {
             background: linear-gradient(145deg, #90EE90, #98FB98);
             border-color: #228B22;
         }
+
         @keyframes matchPulse {
             0%, 100% { transform: scale(1); }
             25% { transform: scale(1.1) rotate(5deg); }
@@ -235,6 +481,7 @@
             align-items: center;
             justify-content: center;
         }
+
         .victory-content {
             background: linear-gradient(145deg, #FFD700, #FFA500);
             padding: 50px;
@@ -247,15 +494,37 @@
             animation: victoryPop 0.8s ease;
             color: #8B4513;
         }
+
         @keyframes victoryPop {
             0% { transform: scale(0.3) rotate(-15deg); opacity: 0; }
             50% { transform: scale(1.1) rotate(5deg); }
             100% { transform: scale(1) rotate(0deg); opacity: 1; }
         }
-        .victory-title { font-size: 3.5em; margin-bottom: 20px; font-weight: bold; text-shadow: 4px 4px 8px rgba(0,0,0,0.3); }
-        .victory-stars { font-size: 4em; margin-bottom: 25px; }
-        .victory-stats { font-size: 1.6em; margin-bottom: 35px; line-height: 1.8; }
-        .victory-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+
+        .victory-title {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .victory-stars {
+            font-size: 4em;
+            margin-bottom: 25px;
+        }
+
+        .victory-stats {
+            font-size: 1.6em;
+            margin-bottom: 35px;
+            line-height: 1.8;
+        }
+
+        .victory-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
         .sound-toggle {
             position: fixed;
@@ -272,7 +541,10 @@
             transition: all 0.3s ease;
             box-shadow: 0 6px 12px rgba(0,0,0,0.3);
         }
-        .sound-toggle.muted { background: rgba(255,100,100,0.9); }
+
+        .sound-toggle.muted {
+            background: rgba(255,100,100,0.9);
+        }
 
         .signature {
             position: fixed;
@@ -291,9 +563,22 @@
         }
 
         @media (max-width: 768px) {
-            .game-title { font-size: 2.6em; }
-            .difficulty-btn { font-size: 1.4em; padding: 18px 35px; min-width: 260px; }
-            .game-header { margin-bottom: 16px; transform: scale(0.85); transform-origin: top center; }
+            .game-title {
+                font-size: 2.6em;
+            }
+
+            .difficulty-btn {
+                font-size: 1.4em;
+                padding: 18px 35px;
+                min-width: 260px;
+            }
+
+            .game-header {
+                margin-bottom: 16px;
+                transform: scale(0.85);
+                transform-origin: top center;
+            }
+
             .game-info {
                 display: flex;
                 flex-wrap: nowrap;
@@ -302,6 +587,7 @@
                 margin-bottom: 6px;
                 overflow-x: auto;
             }
+
             .info-card {
                 font-size: 0.95em;
                 padding: 6px 10px;
@@ -310,7 +596,12 @@
                 border: 2px solid #228B22;
                 line-height: 1.1;
             }
-            .stars { font-size: 2em; margin-bottom: 6px; }
+
+            .stars {
+                font-size: 2em;
+                margin-bottom: 6px;
+            }
+
             .game-controls {
                 display: flex;
                 flex-wrap: nowrap;
@@ -318,7 +609,13 @@
                 justify-content: center;
                 margin-bottom: 16px;
             }
-            .game-controls .game-btn { padding: 9px 18px; font-size: 12px; min-height: 44px; }
+
+            .game-controls .game-btn {
+                padding: 9px 18px;
+                font-size: 12px;
+                min-height: 44px;
+            }
+
             .game-board {
                 transform: none;
                 padding: 8px;
@@ -327,26 +624,87 @@
                 width: 100%;
                 box-sizing: border-box;
             }
-            .game-board.easy { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-            .game-board.medium { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-            .game-board.hard { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-            .card { min-width: 90px; min-height: 90px; }
-            .card-front { font-size: 3em; }
-            .victory-content { padding: 35px; width: 95%; }
-            .victory-title { font-size: 2.8em; }
-            .signature { font-size: 1em; padding: 8px 15px; }
+
+            .game-board.easy {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+
+            .game-board.medium {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            .game-board.hard {
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+            }
+
+            .card {
+                min-height: 90px;
+                width: 100%;
+            }
+
+            .card-front {
+                font-size: 3em;
+            }
+
+            .victory-content {
+                padding: 35px;
+                width: 95%;
+            }
+
+            .victory-title {
+                font-size: 2.8em;
+            }
+
+            .signature {
+                font-size: 1em;
+                padding: 8px 15px;
+            }
         }
 
         @media (max-width: 480px) {
-            .game-title { font-size: 2.2em; }
-            .difficulty-btn { font-size: 1.3em; padding: 18px 35px; min-width: 250px; }
-            .game-info { gap: 6px; }
-            .info-card { padding: 6px 10px; font-size: 0.9em; min-width: 80px; }
-            .game-board { gap: 10px; padding: 15px; }
-            .card { min-width: 95px; min-height: 95px; }
-            .card-front { font-size: 3em; }
-            .signature { font-size: 1em; padding: 8px 15px; }
-            .game-controls .game-btn { padding: 8px 16px; font-size: 12px; }
+            .game-title {
+                font-size: 2.2em;
+            }
+
+            .difficulty-btn {
+                font-size: 1.3em;
+                padding: 18px 35px;
+                min-width: 250px;
+            }
+
+            .game-info {
+                gap: 6px;
+            }
+
+            .info-card {
+                padding: 6px 10px;
+                font-size: 0.9em;
+                min-width: 80px;
+            }
+
+            .game-board {
+                gap: 10px;
+                padding: 15px;
+            }
+
+            .card {
+                min-height: 95px;
+                width: 100%;
+            }
+
+            .card-front {
+                font-size: 3em;
+            }
+
+            .signature {
+                font-size: 1em;
+                padding: 8px 15px;
+            }
+
+            .game-controls .game-btn {
+                padding: 8px 16px;
+                font-size: 12px;
+            }
         }
     </style>
 </head>
@@ -446,6 +804,21 @@
             leopard: '🐆'
         };
 
+        const animalSounds = {
+            lion: 'roar',
+            elephant: 'trumpet',
+            giraffe: 'hum',
+            zebra: 'whinny',
+            monkey: 'chatter',
+            tiger: 'growl',
+            hippo: 'grunt',
+            rhino: 'snort',
+            parrot: 'squawk',
+            snake: 'hiss',
+            crocodile: 'snap',
+            leopard: 'purr'
+        };
+
         let gameBoard = [];
         let flippedCards = [];
         let matchedPairs = 0;
@@ -476,9 +849,9 @@
             if (element) {
                 element.addEventListener('click', callback);
                 element.style.cursor = 'pointer';
-                element.addEventListener('mousedown', function() { this.style.transform = 'scale(0.95)'; });
-                element.addEventListener('mouseup', function() { this.style.transform = 'scale(1)'; });
-                element.addEventListener('mouseleave', function() { this.style.transform = 'scale(1)'; });
+                element.addEventListener('mousedown', function () { this.style.transform = 'scale(0.95)'; });
+                element.addEventListener('mouseup', function () { this.style.transform = 'scale(1)'; });
+                element.addEventListener('mouseleave', function () { this.style.transform = 'scale(1)'; });
             }
         }
 
@@ -496,7 +869,7 @@
                 const gainNode = audioContext.createGain();
                 oscillator.connect(gainNode);
                 gainNode.connect(audioContext.destination);
-                switch(type) {
+                switch (type) {
                     case 'flip':
                         oscillator.frequency.setValueAtTime(500, audioContext.currentTime);
                         gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
@@ -540,7 +913,7 @@
                         oscillator.stop(audioContext.currentTime + 0.1);
                         break;
                 }
-            } catch (e) {
+            } catch (error) {
                 console.log('Audio not supported');
             }
         }
@@ -572,6 +945,7 @@
             gameBoard = shuffleArray(pairs);
             gameBoardElement.innerHTML = '';
             gameBoardElement.className = `game-board ${difficultySettings[currentDifficulty].gridClass}`;
+
             gameBoard.forEach((animal, index) => {
                 const card = document.createElement('div');
                 card.className = 'card';
@@ -616,6 +990,7 @@
 
         function checkMatch() {
             const [first, second] = flippedCards;
+            if (!first || !second) return;
             if (first.animal === second.animal) {
                 first.card.classList.add('matched');
                 second.card.classList.add('matched');
@@ -642,7 +1017,10 @@
         }
 
         function stopTimer() {
-            if (gameTimer) { clearInterval(gameTimer); gameTimer = null; }
+            if (gameTimer) {
+                clearInterval(gameTimer);
+                gameTimer = null;
+            }
         }
 
         function updateDisplay() {
@@ -678,10 +1056,12 @@
             victoryStars.forEach((star, index) => {
                 star.classList.toggle('filled', index < currentStars);
             });
+
             const minutes = Math.floor(seconds / 60);
             const secs = seconds % 60;
             const timeStr = `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
             const levelName = { easy: 'קל', medium: 'בינוני', hard: 'מומחה' }[currentDifficulty];
+
             document.getElementById('victoryStats').innerHTML = `
                 <div><strong>🎯 רמה:</strong> ${levelName}</div>
                 <div><strong>⏱ זמן:</strong> ${timeStr}</div>
@@ -718,9 +1098,9 @@
             initializeGame();
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             document.querySelectorAll('.difficulty-btn').forEach(btn => {
-                addClickHandler(btn, function() {
+                addClickHandler(btn, function () {
                     startGame(this.dataset.difficulty);
                 });
             });
@@ -731,13 +1111,22 @@
             addClickHandler(soundToggle, toggleSound);
         });
 
-        document.addEventListener('keydown', function(event) {
-            switch(event.key) {
-                case 'Escape': if (gameScreen.style.display !== 'none') goHome(); break;
-                case 'r': case 'R': if (gameScreen.style.display !== 'none') restartGame(); break;
-                case 's': case 'S': toggleSound(); break;
+        document.addEventListener('keydown', function (event) {
+            switch (event.key) {
+                case 'Escape':
+                    if (gameScreen.style.display !== 'none') goHome();
+                    break;
+                case 'r':
+                case 'R':
+                    if (gameScreen.style.display !== 'none') restartGame();
+                    break;
+                case 's':
+                case 'S':
+                    toggleSound();
+                    break;
             }
         });
     </script>
 </body>
 </html>
+
